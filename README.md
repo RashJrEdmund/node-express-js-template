@@ -16,6 +16,19 @@ This template repo has been setup with <code>TypeScript</code>, <code>SASS</code
     - dotenv
 
 ### Quick start
+  - use this repo directly from github
+   ![use this repo](./readme-assets/github,%20use%20this%20repo.png)
+
+  - Or clone repo locally with
+
+      SSH
+
+        git clone git@github.com:RashJrEdmund/node-express-js-template.git
+
+      HTTPS
+
+         git clone https://github.com/RashJrEdmund/node-express-js-template.git
+
   -  run  <code>npm install</code> to install all neccesarry dependencies.
 
   - open package.json or run <code>npm run</code> to see all available scripts.
@@ -47,5 +60,4 @@ This template repo has been setup with <code>TypeScript</code>, <code>SASS</code
   - If it's ok, you can then work on it, the create PRs to the <code>dev</code> branch.
   - Your PR should be titled feature/<code>< your fix(as shoten as possible):your github-username ></code>.
   - Donnot or attempt force pushing.
-  - Donnot push your local test branches or any branches your created that donnot follow this format
-  - 
+  - Donnot push your local test branches or any branches your created that donnot follow this format, and or have anything to do with your fix
