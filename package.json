@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "a node js sandbox where i learn node/express concepts",
   "main": "server.ts",
+  "type": "module",
   "scripts": {
     "build": "node -e \"const readlineSync = require('readline-sync'); if (readlineSync.keyInYN('Are you sure you want to execute this build script? all .ts files will have a corresponding .js files just next to them')) { require('./local-build-script.js'); } else { console.log('Script execution cancelled.'); }\"",
     "build:ts": "npx tsc",
