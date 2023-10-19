@@ -1,7 +1,7 @@
 import { Request, RequestHandler, Response } from "express";
 import USER_SERVICE from "./user.service"
 import REQ_NOT_FOUND_ERROS from "../../services/REQ_ERROR";
-import createFromBody from "../../services/createFromBody";
+import createFromBody from "../../services/extra/createFromBody";
 
 interface CONTROLLER_INTERFACE {
     user_service: USER_SERVICE;

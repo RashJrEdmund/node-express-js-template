@@ -1,5 +1,5 @@
-import REQ_NOT_FOUND_ERROS from "./REQ_ERROR";
-import { USER } from "./types";
+import REQ_NOT_FOUND_ERROS from "../REQ_ERROR";
+import { USER } from "../types";
 
 type CREATE_FROM_BODY = (body: any, options: {
     _type: "USER", // add more types that you'll create the validations for e.g "URL" | "VISITOR",
