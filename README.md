@@ -16,24 +16,28 @@ This template repo has been setup with <code>TypeScript</code>, <code>SASS</code
     - dotenv
 
 ### Quick start
-  - use this repo directly from github
-   ![use this repo](./readme-assets/github,%20use%20this%20repo.png)
+  - run
 
-  - Or clone repo locally with
+        npx degit "RashJrEdmund/node-express-js-template" my-express-app
+      
+    To setup the repo locally. you can replace <code>my-express-app</code> with <code>your actuall app name</code>
 
-      SSH
-
-        git clone git@github.com:RashJrEdmund/node-express-js-template.git
-
-      HTTPS
-
-         git clone https://github.com/RashJrEdmund/node-express-js-template.git
+  #### Afterwards:
 
   -  run  <code>npm install</code> to install all neccesarry dependencies.
 
   - open package.json or run <code>npm run</code> to see all available scripts.
 
   - run <code>npm run dev:concurrently</code> to start both sass:compiler and nodemone.
+
+  * * *
+
+  ### Files/Folders to Delete
+  - <code>readme-assets</code> (Folder)
+      - run <code> rm -rf ./readme-assets</code> at the root of your project. it contains readme assest.
+
+  - <code>README.md</code> (File)
+      - run <code> rm -rf ./README.md</code> at the root of your project. it contains readme it self.
 
   * * *
 
