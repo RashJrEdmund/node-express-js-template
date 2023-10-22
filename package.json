@@ -1,5 +1,5 @@
 {
-  "name": "learning-node",
+  "name": "node-express-template",
   "version": "1.0.0",
   "description": "a node js sandbox where i learn node/express concepts",
   "main": "server.ts",
