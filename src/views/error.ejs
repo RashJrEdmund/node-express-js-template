@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/static/favicon.png">
+    <link rel="icon" href="/static/favicon.jpeg">
     <link rel="stylesheet" href="/styles/error.css">
     <title>
         <%= title %>
@@ -12,16 +12,18 @@
 </head>
 
 <body>
-    <section>
-        <h2>
-            <%= header + " " + status %>
-        </h2>
-        <p class="error_message">
-            <%= message %>
-        </p>
-        <p>my github <a href=<%= MY_GITHUB_URL %> >@rashejrdmund</a></p>
-        <p>my Twitter <a href=<%= MY_TWITTER_URL %> >@orashus</a></p>
-    </section>
+    <%- include('navbar'); %>
+
+    <main id="main">
+        <div class="card">
+            <h2>
+                <%= header + " " + status %>
+            </h2>
+            <p class="error_message">
+                <%= message %>
+            </p>
+        </div>
+    </main>
 </body>
 
 </html>

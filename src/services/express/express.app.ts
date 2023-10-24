@@ -1,6 +1,5 @@
 import express, { Application } from "express";
 import cors, { CorsOptions } from "cors";
-import { index_router, user_router } from "../../routes";
 import EntryPoints from "./express.entrypoints";
 import path from "path";
 
@@ -10,7 +9,7 @@ export default async (app: Application) => {
         origin: "*",
     }
 
-    const public_root = path.join(__dirname + "/../../public");
+    const public_root = path.join(__dirname + "/../../../public");
 
     const views_root = path.join(__dirname + "/../../views");
 
