@@ -1,9 +1,9 @@
 import express from "express";
-import { EPXRESS_USER_CONTROLLER } from "../../modules";
+import { USER_CONTROLLER } from "../../modules";
 
 const router = express.Router();
 
-const user_controller = new EPXRESS_USER_CONTROLLER();
+const user_controller = new USER_CONTROLLER();
 
 router.get('/', user_controller.get_all_users.bind(user_controller));
 

@@ -1,4 +1,6 @@
 ## Welcome to my node-express.js template 😌
+![templateicon](./readme-assets/template.jpeg)
+
 if you are looking for a quick and ready to use typescript nodejs with express template,
     
     look no further 😌

@@ -6,10 +6,6 @@ const MONGO_CONNECT_URL = process.env.MONGO_CONNECT_URL;
 
 const PORT = process.env.PORT || 8000;
 
-const MY_GITHUB_URL = process.env.MY_GITHUB_URL;
-
-const MY_TWITTER_URL = process.env.MY_TWITTER_URL
-
 // TODO +=> use the bellow if you plan on validating with bcrypt and jwt
 // TODO +=> navigate to src/services/validation/index.ts to see the validation process
 
@@ -22,8 +18,6 @@ const MY_TWITTER_URL = process.env.MY_TWITTER_URL
 export {
     MONGO_CONNECT_URL,
     PORT,
-    MY_GITHUB_URL,
-    MY_TWITTER_URL,
     // JWT_PRIVATE_KEY,
     // SALT_ROUNDS,
     // TOKEN_EXPIRERY_TIME
