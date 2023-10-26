@@ -6,7 +6,13 @@ if you are looking for a quick and ready to use typescript nodejs with express t
     look no further 😌
 
   * * *
+
+  made with ❤️  by [RashJrEdmund](https://github.com/RashJrEdmund)
   
+  get your own copy [here](https://github.com/RashJrEdmund/node-express-js-template)
+
+  * * *
+
 ### Description / Content
 This template repo has been setup with <code>TypeScript</code>, <code>SASS</code>, <code>EJS</code> <code>MongoDb</code>, and <code>Mongoose</code>.
  Also, a simple user endpoint has been created with <code>/users</code>, and the actuall schema created mongoose and MongoDb initiallized, but will need your mongo_connections url.

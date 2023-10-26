@@ -1,5 +1,6 @@
 import REQ_NOT_FOUND_ERROS from "../REQ_ERROR";
 import { USER } from "../types";
+import { createObjectId } from "../utils";
 
 type CREATE_FROM_BODY = (body: any, options: {
     _type: "USER", // add more types that you'll create the validations for e.g "URL" | "VISITOR",
@@ -22,6 +23,7 @@ const createFromBody: CREATE_FROM_BODY = (body, options) => {
             };
 
             const new_user: USER = {
+                _id: createObjectId().toString(),
                 username: body.username,
                 email: body.email,
                 password: body.password,
