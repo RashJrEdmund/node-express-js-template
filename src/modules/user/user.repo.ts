@@ -1,5 +1,5 @@
 import type { ObjectId, OptionalId } from "mongodb";
-import { USERS } from "../../schemas"
+import { USERS } from "../../db/mongo/schemas"
 
 export default class USER_REPO {
     getAllUsers = () => {

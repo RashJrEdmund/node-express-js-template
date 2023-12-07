@@ -1,36 +1,29 @@
 import { Request, RequestHandler, Response } from "express";
-import USER_SERVICE from "./user.service"
+import createFromBody from "../../services/extra/createFromBody";
+import USER_SERVICE from "../user/user.service";
 
 interface CONTROLLER_INTERFACE {
     user_service: USER_SERVICE;
 }
 
-export default class USER_CONTROLLER implements CONTROLLER_INTERFACE {
+export default class AUTH_CONTROLLER implements CONTROLLER_INTERFACE {
     user_service;
 
     constructor() {
         this.user_service = new USER_SERVICE();
     }
 
-    get_all_users: RequestHandler = async (req: Request, res: Response) => {
+    create_one_user: RequestHandler = async (req: Request, res: Response) => {
         try {
-            const users = await this.user_service.get_all_users();
+            const body = req.body;
 
-            if (!users || users.length <= 0) return res.status(404).send({ message: "NONE FOUND", data: null });
+            if (!body) return res.status(404).json({ message: "MISSING DETAILS", data: null });
 
-            return res.status(200).send(users);
-        } catch (error) {
-            res.status(500).send({ message: "AN ERROR OCCURED" });
-        }
-    }
+            const { new_user, status } = createFromBody(body, { _type: "USER", _strict: true }) // strict mode is adviseable for creation of entities
 
-    get_one_user: RequestHandler = async (req: Request, res: Response) => {
-        try {
-            const { user_id } = req.params;
+            if (!new_user || status !== 200) return res.status(404).json({ message: "MISSING DETAILS", data: null });
 
-            if (!user_id || !user_id.trim()) return res.status(404).json({ message: "MISSING DETAILS", data: null });
-
-            const user = await this.user_service.get_user_by_id(user_id);
+            const user = await this.user_service.create_user(new_user);
 
             if (!user) return res.status(404).json({ message: "NOT FOUND", data: null });
 
@@ -40,7 +33,7 @@ export default class USER_CONTROLLER implements CONTROLLER_INTERFACE {
         }
     }
 
-    update_one_user: RequestHandler = async (req: Request, res: Response) => {
+    login: RequestHandler = async (req: Request, res: Response) => {
         try {
             const { user_id } = req.params;
             const update = req.body;
@@ -57,7 +50,7 @@ export default class USER_CONTROLLER implements CONTROLLER_INTERFACE {
         }
     }
 
-    delete_one_user: RequestHandler = async (req: Request, res: Response) => {
+    get_current_user: RequestHandler = async (req: Request, res: Response) => {
         try {
             const { user_id } = req.params;
 

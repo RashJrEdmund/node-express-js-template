@@ -1,4 +1,4 @@
-import { createObjectId } from "../../services/utils";
+import { createObjectId } from "../../utils/utils";
 import USER_REPO from "./user.repo";
 
 interface SERVICE_INTERFACE {
@@ -28,7 +28,7 @@ export default class USER_SERVICE implements SERVICE_INTERFACE {
         return this.user_repo.createUser(user);
     }
 
-    update_user = (_id: string, update: any) => {
+    update_user = (_id: string, update: object) => {
         return this.user_repo.editUser(createObjectId(_id), { ...update });
     }
 
