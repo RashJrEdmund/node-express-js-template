@@ -74,7 +74,7 @@ This template repo has been setup with <code>TypeScript</code>, <code>SASS</code
   - open <code>src/config/config.ts</code>. dotenv has been configure here, and the required configurations for ur app are here. like the db configs, app, jwt, bcrypt are all here. add anymore u see fit.
 
 - <code>constants.ts</code>
-  - open <code>src/services/constants.ts</code>. dotenv has been configure here, you could load and map your API_keys and some other secrets here from you env file
+  - open <code>src/services/constants.ts</code>. dotenv has also been configure here, you could add and load some of env or add constant data/state here.
 
 - <code>interfaces/entities.ts</code>
   - open <code>src/utils/interfaces/entities.ts</code>. It is here you'll setup your TypeScript interfaces.
