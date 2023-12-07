@@ -1,6 +1,7 @@
 import { Request, RequestHandler, Response } from "express";
 import createFromBody from "../../services/extra/createFromBody";
 import USER_SERVICE from "../user/user.service";
+import { BCRYPT_SERVICE, JWT_SERVICE } from "../../services/validation";
 
 interface CONTROLLER_INTERFACE {
     user_service: USER_SERVICE;
@@ -23,11 +24,21 @@ export default class AUTH_CONTROLLER implements CONTROLLER_INTERFACE {
 
             if (!new_user || status !== 200) return res.status(404).json({ message: "MISSING DETAILS", data: null });
 
+            new_user.password = await BCRYPT_SERVICE.hash(new_user.password);
+
             const user = await this.user_service.create_user(new_user);
 
             if (!user) return res.status(404).json({ message: "NOT FOUND", data: null });
 
-            res.status(200).send(user);
+            const token = JWT_SERVICE.sign(user);
+
+            return res.status(200).json({
+                message: "ACCOUNT CREATED, VERIFICATION EMAIL SENT",
+                data: {
+                    user,
+                    token
+                }
+            });
         } catch (error) {
             res.status(500).send({ message: "AN ERROR OCCURED" });
         }
@@ -35,16 +46,32 @@ export default class AUTH_CONTROLLER implements CONTROLLER_INTERFACE {
 
     login: RequestHandler = async (req: Request, res: Response) => {
         try {
-            const { user_id } = req.params;
-            const update = req.body;
+            const email = req.body.email;
+            const password = req.body.password;
 
-            if (!update || !user_id || !user_id.trim()) return res.status(404).json({ message: "MISSING DETAILS", data: null });
+            if (!email || !password) {
+                return res.status(401).json({ message: "MISSING DETAILS", data: null });
+            }
 
-            const updated_user = await this.user_service.update_user(user_id, update);
+            const user = await this.user_service.get_user_by_email(email);
 
-            if (!updated_user) return res.status(500).json({ message: "AN ERROR OCCURED", data: null });
+            if (!user) {
+                return res.status(404).json({ message: "USER NOT FOUND", data: null});
+            }
 
-            res.status(200).send(updated_user);
+            if (!await BCRYPT_SERVICE.compare(password, user.password)) {
+                return res.status(401).json({ message: "WRONG EMAIL OR PASSWORD", data: null });
+            }
+
+            const token = JWT_SERVICE.sign(user);
+
+            return res.status(200).json({
+                message: "USER LOGGED IN",
+                data: {
+                    user,
+                    token
+                }
+            });
         } catch (error) {
             res.status(500).send({ message: "AN ERROR OCCURED" });
         }
@@ -52,13 +79,19 @@ export default class AUTH_CONTROLLER implements CONTROLLER_INTERFACE {
 
     get_current_user: RequestHandler = async (req: Request, res: Response) => {
         try {
-            const { user_id } = req.params;
+            const token = req.headers.authorization?.split(" ").pop();
 
-            if (!user_id || !user_id.trim()) return res.status(404).json({ message: "MISSING DETAILS", data: null });
+            if (!token) {
+                return res.status(401).json({ message: "MISSING TOKEN", data: null });
+            }
 
-            const del_res = await this.user_service.delete_user(user_id);
+            const bearer = JWT_SERVICE.verify(token);
 
-            res.status(200).send(del_res);
+            if(!bearer) {
+                return res.status(401).json({ message: "TOKEN EXPIRED", data: null });
+            }
+            
+            return res.status(200).json({ message: "USER RETRIEVED", data: null });
         } catch (error) {
             res.status(500).send({ message: "AN ERROR OCCURED" });
         }

@@ -1,6 +1,8 @@
 # Welcome to my node-express.js template 😌
 
-![templateicon](./readme-assets/template.jpeg)
+<div align="center">
+  <img src="./readme-assets/template.jpeg"></img>
+</div>
 
 if you are looking for a quick and ready to use typescript nodejs with express template,
 
@@ -20,10 +22,12 @@ This template repo has been setup with <code>TypeScript</code>, <code>SASS</code
  Also, a simple user endpoint has been created with <code>/users</code>, and the actuall schema created mongoose and MongoDb initiallized, but will need your mongo_connections url.
 
 - The app template has the following dependencies added to it.
-  - CORS
-  - nodemon
-  - npm-run-all
-  - dotenv
+  - [bcrypt](https://www.npmjs.com/package/bcrypt)
+  - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+  - [CORS](https://www.npmjs.com/package/cors)
+  - [nodemon](https://www.npmjs.com/package/nodemon)
+  - [concurrently](https://www.npmjs.com/package/concurrently)
+  - [dotenv](https://www.npmjs.com/package/dotenv)
 
 ## Quick start
 
@@ -84,3 +88,9 @@ This template repo has been setup with <code>TypeScript</code>, <code>SASS</code
 - Your PR should be titled feature/<code>< your fix(as shoten as possible):your github-username ></code>.
 - Donnot or attempt force pushing.
 - Donnot push your local test branches or any branches your created that donnot follow this format, and or have anything to do with your fix
+
+## <code>Deployment</code>
+
+- ### Render
+
+  - hello world
