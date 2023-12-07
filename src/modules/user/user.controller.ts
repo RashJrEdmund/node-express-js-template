@@ -16,11 +16,11 @@ export default class USER_CONTROLLER implements CONTROLLER_INTERFACE {
         try {
             const users = await this.user_service.get_all_users();
 
-            if (!users || users.length <= 0) return res.status(404).send({ message: "NONE FOUND", data: null });
+            if (!users) return res.status(404).send({ message: "NONE FOUND", data: null });
 
-            return res.status(200).send(users);
+            return res.status(200).send({ message: "USER RETIREVED", total: users.length, data: users });
         } catch (error) {
-            res.status(500).send({ message: "AN ERROR OCCURED" });
+            res.status(500).send({ message: "AN ERROR OCCURED", data: null });
         }
     }
 
@@ -34,9 +34,9 @@ export default class USER_CONTROLLER implements CONTROLLER_INTERFACE {
 
             if (!user) return res.status(404).json({ message: "NOT FOUND", data: null });
 
-            res.status(200).send(user);
+            res.status(200).send({ message: "USER RETRIEVED", data: user });
         } catch (error) {
-            res.status(500).send({ message: "AN ERROR OCCURED" });
+            res.status(500).send({ message: "AN ERROR OCCURED", data: null });
         }
     }
 
@@ -51,9 +51,9 @@ export default class USER_CONTROLLER implements CONTROLLER_INTERFACE {
 
             if (!updated_user) return res.status(500).json({ message: "AN ERROR OCCURED", data: null });
 
-            res.status(200).send(updated_user);
+            res.status(200).send({ message: "USER UPDATED", data: updated_user });
         } catch (error) {
-            res.status(500).send({ message: "AN ERROR OCCURED" });
+            res.status(500).send({ message: "AN ERROR OCCURED", data: null });
         }
     }
 
@@ -65,9 +65,9 @@ export default class USER_CONTROLLER implements CONTROLLER_INTERFACE {
 
             const del_res = await this.user_service.delete_user(user_id);
 
-            res.status(200).send(del_res);
+            res.status(200).send({ message: "USER DELETED", data: del_res });
         } catch (error) {
-            res.status(500).send({ message: "AN ERROR OCCURED" });
+            res.status(500).send({ message: "AN ERROR OCCURED", data: null });
         }
     }
 }

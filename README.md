@@ -81,7 +81,7 @@ This template repo has been setup with <code>TypeScript</code>, <code>SASS</code
 
   * * *
 
-## <code>Contributing</code>
+## Contributing
 
 - creat and issue, i'll review it, (review could take as long as 3days, depending on the issue).
 - If it's ok, you can then work on it, the create PRs to the <code>dev</code> branch.
@@ -89,7 +89,7 @@ This template repo has been setup with <code>TypeScript</code>, <code>SASS</code
 - Donnot or attempt force pushing.
 - Donnot push your local test branches or any branches your created that donnot follow this format, and or have anything to do with your fix
 
-## <code>Deployment</code>
+## Deployment
 
 - ### Render
 

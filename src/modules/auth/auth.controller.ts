@@ -40,7 +40,7 @@ export default class AUTH_CONTROLLER implements CONTROLLER_INTERFACE {
                 }
             });
         } catch (error) {
-            res.status(500).send({ message: "AN ERROR OCCURED" });
+            res.status(500).send({ message: "AN ERROR OCCURED", data: null });
         }
     }
 
@@ -73,7 +73,7 @@ export default class AUTH_CONTROLLER implements CONTROLLER_INTERFACE {
                 }
             });
         } catch (error) {
-            res.status(500).send({ message: "AN ERROR OCCURED" });
+            res.status(500).send({ message: "AN ERROR OCCURED", data: null });
         }
     }
 
@@ -93,7 +93,7 @@ export default class AUTH_CONTROLLER implements CONTROLLER_INTERFACE {
             
             return res.status(200).json({ message: "USER RETRIEVED", data: null });
         } catch (error) {
-            res.status(500).send({ message: "AN ERROR OCCURED" });
+            res.status(500).send({ message: "AN ERROR OCCURED", data: null });
         }
     }
 }
