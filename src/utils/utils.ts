@@ -1,5 +1,4 @@
 import { ObjectId } from "mongodb";
-import REQ_NOT_FOUND_ERROS from "./REQ_ERROR";
 
 type STRINGIFY = (obj: any, options?: {
     _spacing?: number,
@@ -25,7 +24,7 @@ export const createObjectId = (_id?: string) => {
         return new ObjectId(_id); // this is a mongodb thing, generates a unique id base on the environment and is only for server side processes
     } catch (err) {
         throw new Error(JSON.stringify({
-            message: new REQ_NOT_FOUND_ERROS("USER").URECOGNISED_STRING_FOR_OBJECT_ID(),
+            message: "URECOGNISED STRING FOR OBJECT ID",
         }));
     }
 }

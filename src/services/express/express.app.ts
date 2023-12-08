@@ -11,7 +11,7 @@ export default async (app: Application) => {
 
     const public_root = path.join(__dirname + "/../../../public");
 
-    const views_root = path.join(__dirname + "/../../views");
+    const views_root = path.join(__dirname + "/../../generators/views");
 
     app.use(cors(cors_options));
     app.use(express.json());
